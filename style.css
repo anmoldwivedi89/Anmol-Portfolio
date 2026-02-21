@@ -714,6 +714,20 @@ footer {
         padding: 0 1rem;
     }
 
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .service-card {
+        padding: 3rem 1.5rem;
+    }
+
     .nav-links {
         display: none;
         /* Default hidden */
@@ -788,6 +802,15 @@ footer {
 
     .contact-item {
         width: 100%;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    #services .section-title {
+        margin-bottom: 3rem;
     }
 
     .section-title {
