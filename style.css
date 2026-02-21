@@ -269,11 +269,14 @@ section {
 
 .about-image-wrapper {
     position: relative;
-    border-radius: 50%;
+    width: 100%;
+    max-width: 400px;
     aspect-ratio: 1 / 1;
+    border-radius: 50%;
     overflow: hidden;
     border: 2px solid var(--border);
     transition: 0.5s;
+    margin: 0 auto;
 }
 
 
