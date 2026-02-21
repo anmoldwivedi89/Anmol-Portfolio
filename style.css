@@ -234,7 +234,7 @@ h4 {
 
 /* Sections */
 section {
-    padding: 6rem 0;
+    padding: 5rem 0;
     overflow: hidden;
     /* Clips any animation or glow overflow */
 }
@@ -316,12 +316,21 @@ section {
     border-top: 1px solid var(--border);
 }
 
+.skills-grid {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+}
+
 .skill-category {
     background: var(--glass);
     padding: 2rem;
     border-radius: 20px;
     border: 1px solid var(--border);
     margin-bottom: 1.5rem;
+}
+
+.skill-category:last-child {
+    margin-bottom: 0;
 }
 
 .tags {
@@ -701,6 +710,10 @@ footer {
     #hero p {
         font-size: 1rem;
         padding: 0 1.5rem;
+    }
+
+    section {
+        padding: 3.5rem 0;
     }
 
     .nav-container {
