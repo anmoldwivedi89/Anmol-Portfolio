@@ -269,7 +269,8 @@ section {
 
 .about-image-wrapper {
     position: relative;
-    border-radius: 30px;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     border: 2px solid var(--border);
     transition: 0.5s;
@@ -283,8 +284,10 @@ section {
 
 .profile-img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     display: block;
+    border-radius: 50%;
     filter: grayscale(20%);
     transition: 0.5s;
 }
