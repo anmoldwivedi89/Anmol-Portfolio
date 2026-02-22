@@ -483,21 +483,19 @@ section {
 }
 
 .melohub-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
+    font-family: 'Pacifico', cursive !important;
+    font-size: 1.5rem;
+    /* Balanced size to fit the card */
+    font-weight: 500;
+    background: linear-gradient(to right, #1db954, #1ed760, #00bcd4, #bb66ff, #1db954);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-flow 3s linear infinite;
+    padding-bottom: 5px;
+    display: inline-block;
 }
-
-.melohub-icon {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-}
-
-/* Removed Pacifico font and gradient animations */
 
 @keyframes gradient-flow {
     0% {
