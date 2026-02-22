@@ -484,26 +484,28 @@ section {
 
 .melohub-title {
     font-family: 'Pacifico', cursive !important;
-    font-size: 1.6rem;
-    /* Reduced from 2.2rem */
+    font-size: 1.35rem;
+    /* Further reduced from 1.6rem */
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    /* Reduced from 12px */
     background: linear-gradient(to right, #1db954, #1ed760, #00bcd4, #bb66ff, #1db954);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradient-flow 3s linear infinite;
-    padding-bottom: 5px;
+    padding-bottom: 2px;
+    width: fit-content;
 }
 
 .melohub-icon {
-    width: 28px;
-    /* Reduced from 35px */
-    height: 28px;
-    /* Reduced from 35px */
+    width: 20px;
+    /* Further reduced from 28px */
+    height: 20px;
+    /* Further reduced from 28px */
     transform: rotate(-15deg) skewX(-10deg);
     filter: drop-shadow(0 0 5px rgba(29, 185, 84, 0.5));
     transition: all 0.3s ease;
