@@ -454,6 +454,7 @@ section {
     right: auto;
     margin-bottom: 1.5rem;
     width: fit-content;
+    max-width: 100%;
     align-items: flex-start;
     text-align: left;
     padding: 0.8rem 1.4rem;
@@ -478,6 +479,7 @@ section {
 .project-title-flex {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 1rem;
 }
@@ -881,6 +883,20 @@ footer {
     .section-title {
         font-size: 2rem;
     }
+
+    .project-info {
+        padding: 1.5rem;
+    }
+
+    .kanpur-title,
+    .melohub-title {
+        font-size: 1.3rem;
+    }
+
+    .achievement-badge.inline-badge {
+        padding: 0.6rem 1rem;
+        font-size: 0.7rem;
+    }
 }
 
 /* Extra Small Phones */
@@ -891,5 +907,15 @@ footer {
 
     .logo {
         font-size: 1.2rem;
+    }
+
+    .kanpur-title,
+    .melohub-title {
+        font-size: 1.1rem;
+    }
+
+    .achievement-badge.inline-badge {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.65rem;
     }
 }
