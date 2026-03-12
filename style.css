@@ -446,19 +446,31 @@ section {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: center 10%;
+  object-position: center 20%;
   display: block;
   border-radius: 50%;
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), object-position 0.6s, filter 0.6s;
   border: 5px solid var(--bg);
   box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
   position: relative;
   z-index: 1; /* Place above the glow */
+  cursor: pointer;
+  filter: grayscale(20%);
 }
 
 .about-image-wrapper:hover .profile-img {
   transform: scale(1.05) rotate(4deg);
   border-color: rgba(255, 255, 255, 0.1);
+  filter: grayscale(0%);
+}
+
+.profile-img.flipped {
+  object-position: center 10%;
+  filter: grayscale(0%);
+}
+
+.profile-img.flipping {
+  transform: rotateY(90deg) scale(1.05) !important;
 }
 
 .glow-effect {
