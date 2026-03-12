@@ -174,15 +174,50 @@ h4 {
 .creative-heading {
   position: relative;
   display: inline-block;
+  cursor: pointer;
+  transition: 0.3s;
 }
 .creative-heading span {
   display: inline-block;
   transform: rotate(15deg) translateY(-3px);
   color: var(--accent);
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .creative-heading span:nth-child(2) {
   transform: rotate(-15deg) translateY(3px);
   color: #00bcd4;
+}
+
+@keyframes word-shake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  25% {
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(3px) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+
+.creative-heading:hover {
+  animation: word-shake 0.3s linear infinite;
+}
+
+.creative-heading:hover span {
+  transform: rotate(25deg) scale(1.15) translateY(-5px);
+  color: #fff;
+  text-shadow: 0 0 15px var(--accent);
+}
+
+.creative-heading:hover span:nth-child(2) {
+  transform: rotate(-25deg) scale(1.15) translateY(5px);
+  color: #fff;
+  text-shadow: 0 0 15px #00bcd4;
 }
 
 @media (max-width: 768px) {
