@@ -353,39 +353,39 @@ section {
   max-width: 400px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--border);
   transition: 0.5s;
   margin: 0 auto;
 }
 
 .about-image-wrapper::before,
-.about-image-wrapper::after {
+.about-image-wrapper::after,
+.about-image-wrapper .ring-3 {
   content: "";
   position: absolute;
   border-radius: 50%;
   z-index: 0;
   transition: 0.5s;
+  pointer-events: none;
 }
 
 .about-image-wrapper::before {
-  inset: -12px;
-  border: 3px dashed var(--accent);
-  animation: spin 15s linear infinite;
+  inset: -15px;
+  border: 4px dashed #00bcd4;
+  animation: spin 20s linear infinite;
+  opacity: 0.8;
 }
 
 .about-image-wrapper::after {
   inset: -25px;
-  background: linear-gradient(
-    45deg,
-    var(--accent),
-    transparent,
-    #00bcd4,
-    transparent
-  );
-  opacity: 0.6;
-  filter: blur(15px);
-  animation: spin-reverse 10s linear infinite;
+  border: 3px dotted var(--accent);
+  animation: spin-reverse 15s linear infinite;
+  opacity: 0.9;
+}
+
+.about-image-wrapper .ring-3 {
+  inset: -35px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  animation: spin 30s linear infinite;
 }
 
 @keyframes spin {
