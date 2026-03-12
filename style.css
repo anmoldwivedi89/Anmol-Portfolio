@@ -148,6 +148,7 @@ h4 {
   display: inline-block;
   transform: rotate(-3deg) translateY(-5px);
   transition: 0.3s;
+  color: #fff;
 }
 .dance-text:hover {
   transform: rotate(0deg) translateY(0);
@@ -159,6 +160,7 @@ h4 {
   display: inline-block;
   transform: rotate(2deg) translateY(5px);
   transition: 0.3s;
+  color: #fff;
 }
 .dance-text-2:hover {
   transform: rotate(0deg) translateY(0);
@@ -169,6 +171,7 @@ h4 {
 .skewed {
   display: inline-block;
   transform: skewX(-10deg);
+  color: #fff;
 }
 
 .creative-heading {
