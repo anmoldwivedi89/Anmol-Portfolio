@@ -91,7 +91,7 @@ if (profileImg) {
       if (this.classList.contains("flipped")) {
         this.src = "profile.png?v=4";
       } else {
-        this.src = "profile_old.png";
+        this.src = "profile1.png";
       }
     }, 300);
 
