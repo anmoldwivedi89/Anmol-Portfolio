@@ -80,13 +80,15 @@ navLinkItems.forEach((item) => {
 // Profile Image Toggle Animation
 const profileImg = document.querySelector(".profile-img");
 if (profileImg) {
-  profileImg.addEventListener("click", function () {
-    this.classList.toggle("flipped");
+  let isAnimating = false;
 
-    // Add flipping animation class
+  const toggleImage = function (e) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    this.classList.toggle("flipped");
     this.classList.add("flipping");
 
-    // Change src midway through the flip
     setTimeout(() => {
       if (this.classList.contains("flipped")) {
         this.src = "profile.png?v=4";
@@ -95,9 +97,11 @@ if (profileImg) {
       }
     }, 300);
 
-    // Remove flipping class to finish animation
     setTimeout(() => {
       this.classList.remove("flipping");
+      isAnimating = false;
     }, 600);
-  });
+  };
+
+  profileImg.addEventListener("click", toggleImage);
 }

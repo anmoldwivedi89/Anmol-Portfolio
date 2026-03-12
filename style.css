@@ -457,9 +457,12 @@ section {
   border: 5px solid var(--bg);
   box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
   position: relative;
-  z-index: 1; /* Place above the glow */
+  z-index: 10; /* Boosted z-index */
   cursor: pointer;
   filter: grayscale(20%);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 .about-image-wrapper:hover .profile-img {
@@ -999,6 +1002,11 @@ footer {
   .about-image-wrapper::before {
     inset: -5px;
     border-width: 2px;
+  }
+
+  .about-image-wrapper:hover .profile-img {
+    transform: none;
+    border-color: var(--bg);
   }
 
   .about-image-wrapper::after {
