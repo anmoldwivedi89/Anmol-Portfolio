@@ -1312,6 +1312,205 @@ footer {
   }
 }
 
+/* ============================
+   Asymmetrical & Experimental Design
+   ============================ */
+
+/* Floating Animation Variants */
+@keyframes float-offset-1 {
+  0% { transform: translateY(0px) rotateZ(-2deg); }
+  50% { transform: translateY(-25px) rotateZ(-2deg); }
+  100% { transform: translateY(0px) rotateZ(-2deg); }
+}
+
+@keyframes float-offset-2 {
+  0% { transform: translateY(-10px) rotateZ(1.5deg); }
+  50% { transform: translateY(-35px) rotateZ(1.5deg); }
+  100% { transform: translateY(-10px) rotateZ(1.5deg); }
+}
+
+@keyframes float-offset-3 {
+  0% { transform: translateY(-5px) rotateZ(-1deg); }
+  50% { transform: translateY(-30px) rotateZ(-1deg); }
+  100% { transform: translateY(-5px) rotateZ(-1deg); }
+}
+
+/* Floating Badge Animation */
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, -2px); }
+  20% { clip-path: inset(92% 0 1% 0); transform: translate(2px, 2px); }
+  40% { clip-path: inset(43% 0 1% 0); transform: translate(-2px, 2px); }
+  60% { clip-path: inset(25% 0 58% 0); transform: translate(2px, -2px); }
+  80% { clip-path: inset(54% 0 7% 0); transform: translate(-2px, -2px); }
+  100% { clip-path: inset(58% 0 43% 0); transform: translate(2px, 2px); }
+}
+
+/* Apply floating animations with offsets */
+[data-float="true"] {
+  animation: float-offset-1 6s ease-in-out infinite;
+}
+
+.service-card:nth-child(2) {
+  animation: float-offset-2 6.5s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.service-card:nth-child(3) {
+  animation: float-offset-3 6s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+/* Floating Badges */
+[data-float-badge="true"] .service-card i {
+  animation: badge-float 3s ease-in-out infinite;
+}
+
+/* Asymmetrical Grid Layout */
+[data-asymmetric="true"] {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+[data-asymmetric="true"] .project-card:first-child {
+  transform: translateY(-30px) rotateZ(-3deg);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+[data-asymmetric="true"] .project-card:nth-child(2) {
+  transform: translateY(15px) rotateZ(2deg);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+[data-asymmetric="true"] .project-card:hover {
+  transform: translateY(0) rotateZ(0) !important;
+  filter: brightness(1.05);
+}
+
+/* Tilt Effect on Hover */
+[data-tilt="true"] {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+[data-tilt="true"]:hover {
+  transform: rotateX(8deg) rotateY(-8deg) scale(1.02);
+}
+
+/* Layered Depth Effect */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), transparent);
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-info {
+  position: relative;
+  z-index: 2;
+}
+
+/* Offset Section Content */
+.about-text {
+  transform: translateX(20px);
+}
+
+.about-content:hover .about-text {
+  transform: translateX(0);
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Enhance Contact Card with Asymmetry */
+.contact-card {
+  position: relative;
+  transform: translateY(-10px);
+  transition: transform 0.4s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-20px);
+}
+
+.contact-card::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Floating Badge Effect in Services */
+.service-card i {
+  position: relative;
+  z-index: 3;
+}
+
+/* Subtle Glitch on Hover for Headings */
+.section-title:hover {
+  animation: glitch 0.3s linear;
+}
+
+/* Overlapping Cards Effect */
+.projects-grid {
+  overflow: visible;
+}
+
+.project-card {
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-card:hover {
+  box-shadow: 0 40px 80px rgba(99, 102, 241, 0.2);
+}
+
+/* Responsive Adjustments for Asymmetrical Layouts */
+@media (max-width: 768px) {
+  [data-asymmetric="true"] {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  [data-asymmetric="true"] .project-card:first-child,
+  [data-asymmetric="true"] .project-card:nth-child(2) {
+    transform: rotateZ(0deg) translateY(0);
+  }
+
+  .about-text {
+    transform: translateX(0);
+  }
+
+  .service-card:nth-child(2),
+  .service-card:nth-child(3) {
+    animation: none;
+  }
+
+  [data-float="true"] {
+    animation: float 4s ease-in-out infinite;
+  }
+}
+
 /* Mobile Responsive Updates */
 @media (max-width: 768px) {
   #hero h1 {
