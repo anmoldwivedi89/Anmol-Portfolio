@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   sr.reveal(".contact-card", { delay: 200, scale: 0.95 });
   sr.reveal(".contact-item", { interval: 150, origin: "bottom" });
+  sr.reveal(".ach-card", { origin: "bottom", distance: "50px", delay: 200, scale: 0.92 });
 
   // Mouse Tracking Glow Effect for Service Cards
   const cards = document.querySelectorAll(".service-card");
@@ -46,6 +47,33 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.setProperty("--mouse-x", `${x}px`);
       card.style.setProperty("--mouse-y", `${y}px`);
     });
+  });
+
+  // ── Achievements Lightbox ──────────────────────────────────────────────
+  const achModal  = document.getElementById("achModal");
+  const viewBtn   = document.getElementById("viewAchievementBtn");
+  const hackThumb = document.getElementById("hackathonThumb");
+  const closeBtn  = document.getElementById("achModalClose");
+  const backdrop  = document.getElementById("achModalBackdrop");
+
+  function openAchModal() {
+    achModal.removeAttribute("hidden");
+    document.body.style.overflow = "hidden";
+    lucide.createIcons();
+  }
+
+  function closeAchModal() {
+    achModal.setAttribute("hidden", "");
+    document.body.style.overflow = "";
+  }
+
+  if (viewBtn)   viewBtn.addEventListener("click", openAchModal);
+  if (hackThumb) hackThumb.addEventListener("click", openAchModal);
+  if (closeBtn)  closeBtn.addEventListener("click", closeAchModal);
+  if (backdrop)  backdrop.addEventListener("click", closeAchModal);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAchModal();
   });
 });
 

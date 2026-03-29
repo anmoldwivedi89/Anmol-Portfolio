@@ -96,6 +96,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="social-icons">
@@ -162,11 +163,14 @@
           </p>
           <p>
             These days, I'm mostly focused on mastering the fundamentals of Web
-            Development. A significant milestone was participating in the
+            Development. A proud highlight was winning
+            <strong>1st place</strong> at <strong>Hackathon 2.0 (2026)</strong>
+            with <strong>RudhirSetu</strong> — a solution-focused web app built
+            in an inter-college hackathon. I also secured
+            <strong>2nd Runner Up</strong> at the
             <strong>Web Rachayita</strong> tournament (2026) held at
-            <strong>Allenhouse Institute of Technology</strong>, where I secured
-            the <strong>2nd Runner Up</strong> position with my project "Kanpur
-            EcoCulture". I also built <strong>MeloHub</strong> using
+            <strong>Allenhouse Institute of Technology</strong> with my project
+            "Kanpur EcoCulture". I also built <strong>MeloHub</strong> using
             <strong>HTML, CSS, and JavaScript</strong> to learn Authentication
             and complex UI. I enjoy the process of turning an idea into a
             working project and I'm always looking to learn and grow as a
@@ -325,6 +329,88 @@
         </div>
       </div>
     </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+      <div class="container">
+        <h2 class="section-title creative-heading">
+          A<span>c</span>hievem<span>e</span>nts
+        </h2>
+        <div class="achievements-grid">
+
+          <!-- Hackathon Card -->
+          <article class="ach-card" aria-label="Hackathon 2.0 Winner Achievement">
+            <div class="ach-winner-badge">
+              <span>🏆 Winner</span>
+            </div>
+            <div class="ach-body">
+              <div class="ach-thumbnail-wrap">
+                <img
+                  src="Hackthon.jpg"
+                  alt="Anmol and team holding trophy at Hackathon 2.0 (2026)"
+                  class="ach-thumbnail"
+                  loading="lazy"
+                  id="hackathonThumb"
+                />
+                <button
+                  class="ach-view-btn"
+                  id="viewAchievementBtn"
+                  aria-label="View full hackathon photo"
+                >
+                  <i data-lucide="zoom-in"></i>
+                  View Photo
+                </button>
+              </div>
+              <div class="ach-text">
+                <div class="ach-meta">
+                  <span class="ach-event">Hackathon 2.0</span>
+                  <span class="ach-year">2026</span>
+                </div>
+                <h3 class="ach-title">Winner – Hackathon 2.0 (2026)</h3>
+                <p class="ach-desc">
+                  Secured <strong>1st position</strong> in an inter-college hackathon with
+                  <strong>RudhirSetu</strong> — a solution-focused web application
+                  built to bridge critical gaps in blood donation logistics.
+                </p>
+                <div class="ach-tags">
+                  <span>🥇 1st Place</span>
+                  <span>Inter-College</span>
+                  <span>Web App</span>
+                  <span>RudhirSetu</span>
+                </div>
+                <div class="project-actions" style="margin-top: 1.2rem;">
+                  <a
+                    href="https://rudhirsetu.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="p-btn primary"
+                  >
+                    <i data-lucide="external-link"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="achModal" class="ach-modal" role="dialog" aria-modal="true" aria-label="Hackathon achievement photo" hidden>
+      <div class="ach-modal-backdrop" id="achModalBackdrop"></div>
+      <div class="ach-modal-content">
+        <button class="ach-modal-close" id="achModalClose" aria-label="Close photo">
+          <i data-lucide="x"></i>
+        </button>
+        <img
+          src="Hackthon.jpg"
+          alt="Anmol and team holding trophy at Hackathon 2.0 (2026)"
+          class="ach-modal-img"
+        />
+        <p class="ach-modal-caption">🏆 Winner – Hackathon 2.0 (2026) · Team RudhirSetu</p>
+      </div>
+    </div>
 
     <!-- Services / What I Do Section -->
     <section id="services">
