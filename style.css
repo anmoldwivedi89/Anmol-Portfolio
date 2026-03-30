@@ -264,11 +264,25 @@ h4 {
 .social-icons {
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .social-icons a {
   color: var(--text-dim);
   transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.social-icons a svg,
+.social-icons a i {
+  display: block;
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
 }
 
 .social-icons a:hover {
@@ -832,10 +846,15 @@ section {
   width: 140px;
 }
 
-.contact-item i {
+.contact-item i,
+.contact-item svg {
   width: 28px;
   height: 28px;
   color: var(--accent);
+  stroke: var(--accent);
+  fill: none;
+  display: block;
+  flex-shrink: 0;
 }
 
 .contact-item span {
