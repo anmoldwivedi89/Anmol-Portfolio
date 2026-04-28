@@ -83,6 +83,25 @@
   </head>
 
   <body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+      <div class="loader-content">
+        <div class="loader-logo">
+          <span>A</span><span>N</span><span>M</span><span>O</span><span>L</span><span>.</span>
+        </div>
+        <div class="loader-bar">
+          <div class="loader-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Animated Background Particles -->
+    <div id="particles-bg" class="particles-bg"></div>
+
     <!-- Navbar -->
     <nav id="navbar">
       <div class="nav-container">
@@ -189,20 +208,63 @@
           </div>
         </div>
         <div class="skills-grid">
-          <h3>Technical Prowess</h3>
-          <div class="skill-category">
-            <h4>Frontend Core</h4>
-            <div class="tags">
-              <span>HTML5</span><span>CSS3</span><span>JavaScript</span
-              ><span>ES6+</span>
+          <h3 class="creative-heading">Technical <span>P</span>rowes<span>s</span></h3>
+          
+          <!-- Animated Progress Bars -->
+          <div class="skills-progress-container">
+            <div class="skill-progress-item" data-skill="HTML5" data-percent="95">
+              <div class="skill-header">
+                <span class="skill-name">HTML5</span>
+                <span class="skill-percent">95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill-percent: 95%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-progress-item" data-skill="CSS3" data-percent="90">
+              <div class="skill-header">
+                <span class="skill-name">CSS3</span>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill-percent: 90%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-progress-item" data-skill="JavaScript" data-percent="85">
+              <div class="skill-header">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill-percent: 85%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-progress-item" data-skill="Firebase" data-percent="75">
+              <div class="skill-header">
+                <span class="skill-name">Firebase</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill-percent: 75%"></div>
+              </div>
             </div>
           </div>
-          <div class="skill-category">
-            <h4>Libraries & UI</h4>
-            <div class="tags">
-              <span>jQuery</span><span>Bootstrap</span><span>Sass</span
-              ><span>Responsive Design</span>
-            </div>
+
+          <!-- Floating Skill Tags -->
+          <div class="floating-skills">
+            <span class="floating-tag" style="--delay: 0s">HTML5</span>
+            <span class="floating-tag" style="--delay: 0.2s">CSS3</span>
+            <span class="floating-tag" style="--delay: 0.4s">JavaScript</span>
+            <span class="floating-tag" style="--delay: 0.6s">ES6+</span>
+            <span class="floating-tag" style="--delay: 0.8s">jQuery</span>
+            <span class="floating-tag" style="--delay: 1s">Bootstrap</span>
+            <span class="floating-tag" style="--delay: 1.2s">Sass</span>
+            <span class="floating-tag" style="--delay: 1.4s">Firebase</span>
+            <span class="floating-tag" style="--delay: 1.6s">Git</span>
+            <span class="floating-tag" style="--delay: 1.8s">Responsive</span>
           </div>
         </div>
       </div>
@@ -214,33 +276,48 @@
         <h2 class="section-title creative-heading">
           E<span>d</span>ucat<span>i</span>on
         </h2>
-        <div class="timeline">
-          <div class="timeline-card">
-            <div class="card-header">
-              <h3>
-                <span class="dance-text">Master of</span>
-                <span class="dance-text-2">Computer</span>
-                <span class="skewed">Applications (MCA)</span>
-              </h3>
-              <span class="date">2025 - 2027</span>
+        <div class="timeline-vertical">
+          <div class="timeline-line"></div>
+          
+          <div class="timeline-item">
+            <div class="timeline-node">
+              <div class="node-glow"></div>
+              <div class="node-dot"></div>
             </div>
-            <p class="institution">Allenhouse Group Of Colleges, Kanpur</p>
-            <p>
-              Advanced studies in Computer Applications and Software
-              Engineering.
-            </p>
+            <div class="timeline-card">
+              <div class="card-header">
+                <h3>
+                  <span class="dance-text">Master of</span>
+                  <span class="dance-text-2">Computer</span>
+                  <span class="skewed">Applications (MCA)</span>
+                </h3>
+                <span class="date">2025 - 2027</span>
+              </div>
+              <p class="institution">Allenhouse Group Of Colleges, Kanpur</p>
+              <p>
+                Advanced studies in Computer Applications and Software
+                Engineering.
+              </p>
+            </div>
           </div>
-          <div class="timeline-card">
-            <div class="card-header">
-              <h3>
-                <span class="dance-text">Bachelor</span>
-                <span class="dance-text-2">of</span>
-                <span class="skewed">Science (B.Sc)</span>
-              </h3>
-              <span class="date">2022 - 2025</span>
+          
+          <div class="timeline-item">
+            <div class="timeline-node">
+              <div class="node-glow"></div>
+              <div class="node-dot"></div>
             </div>
-            <p class="institution">Swami Vivekanand College, Shuklaganj</p>
-            <p>Foundation in scientific principles and logical reasoning.</p>
+            <div class="timeline-card">
+              <div class="card-header">
+                <h3>
+                  <span class="dance-text">Bachelor</span>
+                  <span class="dance-text-2">of</span>
+                  <span class="skewed">Science (B.Sc)</span>
+                </h3>
+                <span class="date">2022 - 2025</span>
+              </div>
+              <p class="institution">Swami Vivekanand College, Shuklaganj</p>
+              <p>Foundation in scientific principles and logical reasoning.</p>
+            </div>
           </div>
         </div>
       </div>

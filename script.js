@@ -2,6 +2,92 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize Lucide Icons
   lucide.createIcons();
 
+  // ── Loading Screen ──────────────────────────────────────────────
+  const loader = document.getElementById("loader");
+  
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      loader.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }, 2000);
+  });
+
+  // ── Custom Cursor ──────────────────────────────────────────────
+  const cursorDot = document.querySelector(".cursor-dot");
+  const cursorOutline = document.querySelector(".cursor-outline");
+  
+  if (cursorDot && cursorOutline && window.innerWidth > 768) {
+    let mouseX = 0, mouseY = 0;
+    let outlineX = 0, outlineY = 0;
+    
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorDot.style.left = mouseX + "px";
+      cursorDot.style.top = mouseY + "px";
+    });
+    
+    // Smooth outline follow
+    function animateCursor() {
+      outlineX += (mouseX - outlineX) * 0.15;
+      outlineY += (mouseY - outlineY) * 0.15;
+      cursorOutline.style.left = outlineX + "px";
+      cursorOutline.style.top = outlineY + "px";
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+    
+    // Hover effects on interactive elements
+    const hoverElements = document.querySelectorAll("a, button, .project-card, .service-card, .contact-item, .floating-tag");
+    hoverElements.forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        cursorDot.classList.add("hover");
+        cursorOutline.classList.add("hover");
+      });
+      el.addEventListener("mouseleave", () => {
+        cursorDot.classList.remove("hover");
+        cursorOutline.classList.remove("hover");
+      });
+    });
+  }
+
+  // ── Animated Particles Background ──────────────────────────────
+  const particlesBg = document.getElementById("particles-bg");
+  
+  if (particlesBg) {
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement("div");
+      particle.className = "particle";
+      particle.style.left = Math.random() * 100 + "%";
+      particle.style.animationDuration = (Math.random() * 15 + 10) + "s";
+      particle.style.animationDelay = (Math.random() * 5) + "s";
+      particle.style.width = (Math.random() * 4 + 2) + "px";
+      particle.style.height = particle.style.width;
+      particle.style.opacity = Math.random() * 0.3 + 0.1;
+      
+      // Random colors
+      const colors = ["#6366f1", "#00bcd4", "#818cf8", "#22d3ee"];
+      particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+      
+      particlesBg.appendChild(particle);
+    }
+  }
+
+  // ── Skills Progress Animation ──────────────────────────────────
+  const skillItems = document.querySelectorAll(".skill-progress-item");
+  
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate");
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  skillItems.forEach((item) => skillObserver.observe(item));
+
   // ── Advanced Tilt Effect for Project Cards ──────────────────────────
   const tiltCards = document.querySelectorAll('[data-tilt="true"]');
   
