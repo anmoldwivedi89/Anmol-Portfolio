@@ -2,6 +2,31 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize Lucide Icons
   lucide.createIcons();
 
+  // ── Theme Toggle ───────────────────────────────────────────────────────
+  const toggleBtn = document.getElementById("themeToggleBtn");
+  const html = document.documentElement;
+
+  // Load saved preference (default: dark)
+  const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
+  if (savedTheme === "light") html.setAttribute("data-theme", "light");
+
+  function setTheme(theme) {
+    if (theme === "light") {
+      html.setAttribute("data-theme", "light");
+    } else {
+      html.removeAttribute("data-theme");
+    }
+    localStorage.setItem("portfolio-theme", theme);
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const current = html.getAttribute("data-theme") === "light" ? "dark" : "light";
+      setTheme(current);
+    });
+  }
+  // ──────────────────────────────────────────────────────────────────────
+
   // Initialize ScrollReveal
   const sr = ScrollReveal({
     origin: "bottom",
@@ -16,16 +41,16 @@ document.addEventListener("DOMContentLoaded", () => {
     reset: false,
   });
 
-  sr.reveal(".badge", { origin: "top" });
-  sr.reveal("#hero h1", { delay: 300, scale: 0.8 });
-  sr.reveal("#hero p", { delay: 500 });
-  sr.reveal(".cta-buttons", { delay: 700, origin: "bottom" });
-  sr.reveal(".about-image-wrapper", {
-    origin: "left",
-    distance: "100px",
-    delay: 200,
-  });
-  sr.reveal(".about-text", { origin: "right", distance: "100px", delay: 400 });
+  sr.reveal(".hero-eyebrow", { origin: "left", delay: 100 });
+  sr.reveal(".hero-name", { delay: 250, scale: 0.88 });
+  sr.reveal(".hero-role", { delay: 380 });
+  sr.reveal(".hero-desc", { delay: 480 });
+  sr.reveal(".hero-actions", { delay: 580, origin: "bottom" });
+  sr.reveal(".hero-stats", { delay: 700, origin: "bottom" });
+  sr.reveal(".hero-right", { origin: "right", distance: "80px", delay: 300 });
+  sr.reveal(".about-text", { origin: "left", distance: "60px", delay: 200 });
+  sr.reveal(".skills-grid-solo", { origin: "right", distance: "60px", delay: 350 });
+  sr.reveal(".stat-item", { interval: 150, origin: "bottom", delay: 400 });
   sr.reveal(".timeline-card", { interval: 300, origin: "left" });
   sr.reveal(".project-card", { interval: 300, scale: 0.85 });
   sr.reveal(".service-card", {
