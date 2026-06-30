@@ -416,7 +416,7 @@ h4 {
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;   /* allow orbit ring to extend outside */
 }
 
 /* Decorative vertical rule */
@@ -723,7 +723,7 @@ h4 {
 /* Sections */
 section {
   padding: 5rem 0;
-  overflow: hidden;
+  overflow: clip;   /* prevents horizontal scroll but allows orbit overflow */
   /* Clips any animation or glow overflow */
 }
 
@@ -2384,3 +2384,143 @@ footer {
 }
 
 
+/* ═══════════════════════════════════════════
+   TECH ORBIT RING — Hero Profile
+   ═══════════════════════════════════════════ */
+
+/* Allow orbit icons to overflow beyond the 320px frame */
+.hero-img-frame {
+  overflow: visible;
+}
+
+/* Hub: zero-size anchor centered on the profile picture */
+.tech-orbit-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* Dashed circular track ring */
+.orbit-track {
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1.5px dashed rgba(255, 255, 255, 0.1);
+  animation: orbit-track-glow 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes orbit-track-glow {
+  0%, 100% { border-color: rgba(255, 255, 255, 0.08); }
+  50%       { border-color: rgba(212, 133, 58, 0.25); box-shadow: 0 0 18px rgba(212,133,58,0.06) inset; }
+}
+
+/* Each orbit node: sits at center (0,0) and rotates full 360 */
+.orbit-node {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  animation: orbit-revolve 30s linear infinite;
+  animation-delay: calc(var(--i) * (30s / 8) * -1);
+  pointer-events: none;
+}
+
+/* Glass icon bubble — counter-rotates to stay upright */
+.orbit-icon-wrap {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  top:  -237px;   /* -(orbit-radius 215 + icon-half 22) */
+  left:  -22px;
+  border-radius: 50%;
+  background: rgba(10, 9, 8, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: orbit-counter 30s linear infinite;
+  animation-delay: calc(var(--i) * (30s / 8) * -1);
+  pointer-events: all;
+  cursor: default;
+  overflow: hidden;
+}
+
+/* Vercel logo is black → invert on dark bg */
+.orbit-icon-vercel img {
+  filter: invert(1) brightness(1.2);
+}
+
+/* Inner wrapper — handles hover scale without fighting counter-rotation */
+.orbit-icon-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  border-radius: 50%;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.3s;
+}
+
+.orbit-icon-wrap:hover .orbit-icon-inner {
+  transform: scale(1.28);
+  background: rgba(212, 133, 58, 0.18);
+}
+
+.orbit-icon-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
+}
+
+/* React logo extra spin on hover */
+.orbit-icon-wrap:hover .orbit-icon-react img {
+  animation: react-logo-spin 1.2s linear infinite;
+}
+@keyframes react-logo-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Orbit keyframes */
+@keyframes orbit-revolve {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes orbit-counter {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* Light theme */
+[data-theme="light"] .orbit-track {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .orbit-icon-wrap {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+[data-theme="light"] .orbit-icon-vercel img {
+  filter: none;
+}
+
+/* Mobile: hide orbit (not enough room) */
+@media (max-width: 900px) {
+  .tech-orbit-hub { display: none; }
+}
