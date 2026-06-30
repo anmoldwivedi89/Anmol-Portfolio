@@ -122,11 +122,14 @@ if (menuBtn) {
 
 // Close menu when a link is clicked
 navLinkItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-    const icon = menuBtn.querySelector("i");
-    icon.setAttribute("data-lucide", "menu");
-    lucide.createIcons();
+  item.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    if (!menuBtn) return;                        // guard: no crash if nav absent
+    const icon = menuBtn.querySelector('i');
+    if (icon) {
+      icon.setAttribute('data-lucide', 'menu');
+      lucide.createIcons();
+    }
   });
 });
 
