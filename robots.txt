@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://anmoldwivedi.vercel.app/sitemap.xml
+Sitemap: https://anmol-myportfolio.vercel.app/sitemap.xml
