@@ -2003,27 +2003,6 @@ footer {
     overflow: visible;
   }
 
-  .hero-img-border::before {
-    content: '';
-    display: block;
-    position: absolute;
-    inset: -14px;
-    border-radius: 50%;
-    border: 3px dashed var(--accent);
-    opacity: 0.55;
-    animation: spin 18s linear infinite;
-  }
-
-  .hero-img-border::after {
-    content: '';
-    display: block;
-    position: absolute;
-    inset: -24px;
-    border-radius: 50%;
-    border: 2px dotted var(--accent2);
-    opacity: 0.38;
-    animation: spin-reverse 12s linear infinite;
-  }
 
   .hero-img-border img {
     border-radius: 50%;
