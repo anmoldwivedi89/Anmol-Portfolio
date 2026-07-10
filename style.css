@@ -2384,14 +2384,7 @@ footer {
 
 /* Dashed circular orbit track */
 .orbit-track {
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  border: 1.5px dashed rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  animation: orbit-track-pulse 5s ease-in-out infinite;
+  display: none;
 }
 
 @keyframes orbit-track-pulse {
